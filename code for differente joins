@@ -1,0 +1,21 @@
+-- INNER JOIN
+SELECT c.Name AS Customer, r.RetailerName
+FROM Customer c
+INNER JOIN Retailer r ON c.RetailerID = r.RetailerID;
+
+-- LEFT JOIN
+SELECT c.Name AS Customer, r.RetailerName
+FROM Customer c
+LEFT JOIN Retailer r ON c.RetailerID = r.RetailerID;
+
+-- RIGHT JOIN 
+SELECT c.Name AS Customer, r.RetailerName
+FROM Retailer r
+RIGHT JOIN Customer c ON c.RetailerID = r.RetailerID;
+
+-- FULL OUTER JOIN 
+SELECT 
+    COALESCE(c.Name, 'No Customer') AS Customer, 
+    COALESCE(r.RetailerName, 'No Retailer') AS RetailerName
+FROM Customer c
+FULL JOIN Retailer r ON c.RetailerID = r.RetailerID;
